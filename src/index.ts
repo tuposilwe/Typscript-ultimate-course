@@ -1,3 +1,7 @@
-// Literal (exact, specific)
-type Quantity  = 50 | 100;
-let quantity: Quantity = 100;
+let speed: number | null = null;
+
+let ride = {
+    //Falsy (undefined, null, '', false, 0)
+    //Nullish coalescing operator
+    speed: speed ?? 30
+}
