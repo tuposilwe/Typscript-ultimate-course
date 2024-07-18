@@ -1,5 +1,4 @@
 "use strict";
-;
-let mySize = 2;
-console.log(mySize);
+let phone = document.getElementById('phone');
+phone.value;
 //# sourceMappingURL=index.js.map
