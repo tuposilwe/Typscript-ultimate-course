@@ -4,19 +4,25 @@ class Account {
     constructor(
         public readonly id: number,
         public owner: string,
-        private balance: number){
+        private _balance: number){
     }
 
     deposit(amount: number): void{
         if(amount <= 0)
             throw new Error('Invalid amount');
-        this.balance += amount;
+        this._balance += amount;
     }
 
-    getBalance(): number {
-       return this.balance;
+    get balance(): number {
+       return this._balance;
+    }
+
+    set balance(value: number){
+      if(value < 0)
+        throw new Error('Invalid value');
+     this._balance = value;
     }
 }
 
 let account = new Account(1, 'Mosh',0);
-console.log(account.getBalance());
+console.log(account.balance);
