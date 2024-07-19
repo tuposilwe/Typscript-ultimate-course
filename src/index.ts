@@ -1,22 +1,19 @@
-interface Product {
-    name: string;
-    price: number;
+type ComponentsOptions = {
+    selector: string
 }
 
-type ReadOnly<T> = {
-    readonly [K in keyof T]: T[K]
+function Component(options: ComponentsOptions) {
+    return (constructor: Function) => {
+        console.log('Component decorator called');
+        constructor.prototype.options = options;
+        constructor.prototype.uniqueTd = Date.now();
+        constructor.prototype.insertInDOM = () => {
+            console.log('Inserting the component in the DOM');
+        }
+    }
 }
 
-type Optional<T> = {
-    [K in keyof T]?: T[K]
+@Component({selector:'#my-profile'})
+class ProfileComponent{
+
 }
-
-type Nullable<T> = {
-    [K in keyof T]: T[K] | null
-}
-
-let product: ReadOnly<Product> = {
-    name: 'a',
-    price: 1
-} 
-
