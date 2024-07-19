@@ -1,7 +1,12 @@
-class ArrayUtils {
-    static wrapInArrray<T>(value: T){
-       return [value]
-    }
+class Person {
+    constructor(public name: string){}
 }
 
-let numbers = ArrayUtils.wrapInArrray(1);
+class Customer extends Person{
+}
+
+function echo<T extends Person>(value: T): T {
+    return value;
+}
+
+echo(new Customer('jdj'));
